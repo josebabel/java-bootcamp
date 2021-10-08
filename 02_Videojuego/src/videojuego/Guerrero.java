@@ -33,7 +33,7 @@ public class Guerrero extends Personaje {
 			damage += this.getFuerza();
 		}
 		
-		if(criticoRandom < this.getProbabilidadCritico()) {
+		if(criticoRandom <= this.getProbabilidadCritico()) {
 			System.out.println(this.getNombre() + " hace un critico!");
 			damage *= this.getArma().getCritico();
 		}
