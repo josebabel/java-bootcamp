@@ -33,6 +33,8 @@ public class Read {
 				
 				System.out.println(c.toString());
 			}
+			
+			con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

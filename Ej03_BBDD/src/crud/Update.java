@@ -36,6 +36,7 @@ public class Update {
 			System.out.println("Sentencia SQL ejecutada con éxito");
 			System.out.println("Registros actualizados: "+ afectados);
 			
+			con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

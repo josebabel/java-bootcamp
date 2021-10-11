@@ -29,6 +29,7 @@ public class Delete {
 			System.out.println("Sentencia SQL ejecutada con éxito");
 			System.out.println("Registros eliminados: "+ afectados);
 			
+			con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
