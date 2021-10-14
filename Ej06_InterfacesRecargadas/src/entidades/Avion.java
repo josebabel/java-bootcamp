@@ -8,7 +8,7 @@ public class Avion extends Vehiculo {
 	
 	@Override
 	public void mover(int metros) {
-		int distancia = metros + getHp() * 2;
+		int distancia = metros + getHp() * 3;
 		System.out.println(this + " se ha movido " + distancia + "m");
 	}
 
