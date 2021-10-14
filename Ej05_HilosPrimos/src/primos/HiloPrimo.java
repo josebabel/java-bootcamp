@@ -3,11 +3,12 @@ package primos;
 public class HiloPrimo extends Thread{
 
 	private int number;
-	
+
 	public HiloPrimo(String nombre, int number) {
 		super(nombre);
 		this.number = number;
 	}
+	
 	
 	@Override
 	public void run() {
