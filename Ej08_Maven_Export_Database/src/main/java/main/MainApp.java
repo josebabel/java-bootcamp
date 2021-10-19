@@ -14,7 +14,7 @@ public class MainApp {
 		String option;
 		
 		do {
-			System.out.println("\n*******************\nCRUD Coches\n 1 - Crear | 2 - Borrar\n 3 - Modificar | 4 - Listar uno\n 5 - Listar todos | 6 - Exportar a Excel\n 7 - Exportar a PDF | 8- Salir");
+			System.out.println("\n*******************\nCRUD Coches\n 1 - Crear | 2 - Borrar\n 3 - Modificar | 4 - Listar uno\n 5 - Listar todos | 6 - Exportar a Excel\n 7 - Salir");
 			System.out.print("Escribe opcion: ");
 			option = sc.next();
 			
