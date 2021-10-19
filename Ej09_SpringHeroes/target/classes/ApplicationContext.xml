@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="batman" class="entities.Superheroe" scope="singleton">
+		<property name="id" value="1"></property>
+		<property name="nombre" value="Bruce Wayne"></property>
+		<property name="nombreSuperheroe" value="Batman"></property>
+		<property name="poder" value="80"></property>
+		<property name="superpoder" value="Ninguno"></property>
+	</bean>
+	
+	<bean id="superman" class="entities.Superheroe" scope="singleton">
+		<property name="id" value="2"></property>
+		<property name="nombre" value="Clark Kent"></property>
+		<property name="nombreSuperheroe" value="Superman"></property>
+		<property name="poder" value="100"></property>
+		<property name="superpoder" value="Super Fuerza"></property>
+	</bean>
+	
+	<bean id="green_lantern" class="entities.Superheroe" scope="singleton">
+		<property name="id" value="2"></property>
+		<property name="nombre" value="Hal Jordan"></property>
+		<property name="nombreSuperheroe" value="Green Lantern"></property>
+		<property name="poder" value="90"></property>
+		<property name="superpoder" value="Anillo de Poder"></property>
+	</bean>
+	
+	<bean id="superPrototype01" class="entities.Superheroe" scope="prototype">
+		<property name="poder" value="100"></property>
+	</bean>
+	
+	<bean id="superPrototype02" class="entities.Superheroe" scope="prototype">
+		<property name="superpoder" value="Volar"></property>
+	</bean>
+	
+	<bean id="listado3Supers" class="java.util.ArrayList"></bean>
+	
+	<bean id="listadoPotencia" class="java.util.ArrayList"></bean>
+	
+	<bean id="listadoVuelo" class="java.util.ArrayList"></bean>
+	
+</beans>
