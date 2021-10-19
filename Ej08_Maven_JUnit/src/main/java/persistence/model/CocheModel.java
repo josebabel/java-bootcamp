@@ -16,6 +16,10 @@ public class CocheModel implements DAOCoche {
 
 	private Connection con;
 
+	/**
+	 * Crea un registro Coche en la base de datos
+	 * @param c Coche que daremos de alta
+	 */
 	@Override
 	public boolean create(Coche c) {
 
@@ -46,7 +50,11 @@ public class CocheModel implements DAOCoche {
 
 		return true;
 	}
-
+	
+	/**
+	 * Borra un registro Coche en la base de datos
+	 * @param matricula para borrar el coche en cuestion
+	 */
 	@Override
 	public boolean delete(String matricula) {
 		con = ConexionBBDD.conectar(con);
@@ -61,8 +69,9 @@ public class CocheModel implements DAOCoche {
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, matricula);
 			
-			stmt.executeUpdate();
-
+			int afectadas = stmt.executeUpdate();
+			boolean res = (afectadas > 0) ? true : false;
+			return res;
 		} catch (SQLException e) {
 			System.out.println("No se pudo eliminar el registro | Error: " + e.getMessage());
 			return false;
@@ -70,10 +79,12 @@ public class CocheModel implements DAOCoche {
 		} finally {
 			ConexionBBDD.cerrar(con);
 		}
-
-		return true;
 	}
-
+	
+	/**
+	 * Modifica un registro Coche en la base de datos
+	 * @param c Coche que queremos actualizar en la base de datos
+	 */
 	@Override
 	public boolean update(Coche c) {
 		con = ConexionBBDD.conectar(con);
@@ -91,8 +102,9 @@ public class CocheModel implements DAOCoche {
 			stmt.setInt(3, c.getKilometros());
 			stmt.setString(4, c.getMatricula());
 			
-			stmt.executeUpdate();
-
+			int afectadas = stmt.executeUpdate();
+			boolean res = (afectadas > 0) ? true : false;
+			return res;
 		} catch (SQLException e) {
 			System.out.println("No se pudo actualizar el registro | Error: " + e.getMessage());
 			return false;
@@ -100,9 +112,12 @@ public class CocheModel implements DAOCoche {
 		} finally {
 			ConexionBBDD.cerrar(con);
 		}
-		return true;
 	}
-
+	
+	/**
+	 * Devuelve un registro Coche de la base de datos
+	 * @param matricula del coche que queremos conseguir
+	 */
 	@Override
 	public Coche getOne(String matricula) {
 		con = ConexionBBDD.conectar(con);
@@ -127,6 +142,9 @@ public class CocheModel implements DAOCoche {
 				c.setModelo(result.getString("modelo"));
 				c.setKilometros(result.getInt("num_km"));
 			}
+			
+			Coche res = (c.getMatricula() == null) ? null : c;
+			return res;
 
 		} catch (SQLException e) {
 			System.out.println("No se pudo obtener el registro | Error: " + e.getMessage());
@@ -135,9 +153,11 @@ public class CocheModel implements DAOCoche {
 		} finally {
 			ConexionBBDD.cerrar(con);
 		}
-		return c;
 	}
 
+	/**
+	 * Devuelve todos los registros Coche de la base de datos
+	 */
 	@Override
 	public List<Coche> getAll() {
 		con = ConexionBBDD.conectar(con);
@@ -174,6 +194,9 @@ public class CocheModel implements DAOCoche {
 		return listado;
 	}
 
+	/**
+	 * Exporta la base de datos a un fichero Excel
+	 */
 	@Override
 	public boolean exportToExcel() {
 		con = ConexionBBDD.conectar(con);

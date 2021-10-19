@@ -19,6 +19,10 @@ public class ExcelFile {
 
 	public static boolean createFile(List<Coche> listado) {
 		
+		if(listado == null) {
+			return false;
+		}
+		
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		HSSFSheet sheet = workbook.createSheet();
 		boolean result = false;
