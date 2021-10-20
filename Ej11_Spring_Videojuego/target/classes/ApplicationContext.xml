@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="arco" class="entities.Arco">
+		<property name="personaje" ref="guerrero"></property>
+	</bean>
+	
+	<bean id="hechizo" class="entities.Hechizo">
+		<property name="personaje" ref="mago"></property>
+	</bean>
+	
+	<bean id="guerrero" class="entities.Guerrero">
+		<property name="nombre" value="Hercules"></property>
+		<property name="vida" value="200"></property>
+		<property name="arma" ref="arco"></property>
+		<property name="fuerza" value="10"></property>
+		<property name="probabilidadCritico" value="15"></property>
+	</bean>
+	
+	<bean id="mago" class="entities.Mago">
+		<property name="nombre" value="Dynamo"></property>
+		<property name="vida" value="200"></property>
+		<property name="arma" ref="hechizo"></property>
+		<property name="inteligencia" value="10"></property>
+		<property name="probabilidadCritico" value="20"></property>
+	</bean>
+	
+	<bean id="batalla" class="negocio.Batalla">
+		<property name="p1" ref="guerrero"></property>
+		<property name="p2" ref="mago"></property>
+	</bean>
+	
+</beans>
