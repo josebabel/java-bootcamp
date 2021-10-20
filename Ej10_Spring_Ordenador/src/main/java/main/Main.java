@@ -13,7 +13,6 @@ public class Main {
 		Ordenador o1 = context.getBean("ordenador", Ordenador.class);
 		System.out.println(o1);
 		o1.calcularPrecioComponentes();
-
 	}
 
 }

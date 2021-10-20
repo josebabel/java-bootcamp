@@ -24,10 +24,5 @@ public abstract class Arma {
 	@Override
 	public String toString() {
 		return " [damage=" + damage + ", critico=" + critico + "])";
-	}
-
-	
-	
-	
-	
+	}	
 }
