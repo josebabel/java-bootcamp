@@ -5,8 +5,6 @@
 	
 	<!-- Utils -->
 	<bean id="utils" class="utils.Utils"></bean>
-	<!-- Clase Ordenador -->
-	<bean id="claseOrdenador" class="entities.Ordenador"></bean>
 	
 	<!-- RAM -->
 	<bean id="ram1" class="entities.Ram">
