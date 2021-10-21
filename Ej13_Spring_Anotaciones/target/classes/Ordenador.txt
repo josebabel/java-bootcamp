@@ -1,0 +1,9 @@
+Ordenador [
+precio: 1753.0
+marca: ASUS
+listaRam: [Ram [precio=147.0, gb=8, hz=3200.0, generacion=DDR4], Ram [precio=123.0, gb=8, hz=3200.0, generacion=DDR4]]
+procesador: Procesador [precio=452.0, hz=1770.0, marca=NVIDIA, grafica=null]
+listGraficas: [Grafica [precio=232.0, hz=1770.0, marca=MSI, modelo=RTX, ramGrafica=Ram [precio=97.0, gb=8, hz=1770.0, generacion=GDDR6]]]
+listPerifericos: [Periferico [tipo=MONITOR, precio=53.0], Periferico [tipo=TECLADO, precio=141.0], Periferico [tipo=RATON, precio=200.0], Periferico [tipo=CASCOS, precio=165.0]]
+placa: PlacaBase [precio=240.0, marca=MSI, modelo=X570]
+]
