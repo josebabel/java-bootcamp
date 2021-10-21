@@ -1,9 +1,9 @@
 Ordenador [
-precio: 1449.0
+precio: 1595.0
 marca: INTEL
-listaRam: [Ram [precio=123.0, gb=8, hz=3200.0, generacion=DDR4], Ram [precio=106.0, gb=8, hz=3200.0, generacion=DDR4]]
-procesador: Procesador [precio=279.0, hz=1770.0, marca=MSI, grafica=null]
-listGraficas: [Grafica [precio=345.0, hz=1770.0, marca=INTEL, modelo=RTX, ramGrafica=Ram [precio=0.0, gb=8, hz=1770.0, generacion=GDDR6]]]
-listPerifericos: [Periferico [tipo=MONITOR, precio=105.0], Periferico [tipo=RATON, precio=166.0], Periferico [tipo=TECLADO, precio=116.0], Periferico [tipo=CASCOS, precio=75.0]]
-placa: PlacaBase [precio=134.0, marca=MSI, modelo=X570]
+listaRam: [Ram [precio=66.0, gb=8, hz=3200.0, generacion=DDR4], Ram [precio=96.0, gb=8, hz=3200.0, generacion=DDR4]]
+procesador: Procesador [precio=168.0, hz=1770.0, marca=CORSAIR, grafica=null]
+listGraficas: [Grafica [precio=480.0, hz=1770.0, marca=CORSAIR, modelo=RTX, ramGrafica=Ram [precio=0.0, gb=8, hz=1770.0, generacion=GDDR6]]]
+listPerifericos: [Periferico [tipo=MONITOR, precio=192.0], Periferico [tipo=RATON, precio=163.0], Periferico [tipo=TECLADO, precio=105.0], Periferico [tipo=CASCOS, precio=179.0]]
+placa: PlacaBase [precio=146.0, marca=AMD, modelo=X570]
 ]
