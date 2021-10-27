@@ -69,7 +69,5 @@ public class Coche {
 	public void setKilometros(int kilometros) {
 		this.kilometros = kilometros;
 	}
-	
-	
-	
+		
 }
