@@ -10,6 +10,10 @@ public class Videojuego {
 	private String enlace;
 	private String foto;
 	
+	public Videojuego() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Videojuego(int id, String nombre, String compania, double nota, String creador, String enlace, String foto) {
 		this.id = id;
 		this.nombre = nombre;
