@@ -2,6 +2,8 @@ package es.curso.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +68,7 @@ public class VideojuegoService {
 	 * @param v El videojuego que vayamos a crear
 	 * @return <b>Videojuego</b> creado
 	 */
+	@Transactional
 	public Videojuego create(Videojuego v) {
 		return videojuegoRepositoryJPAData.save(v);
 	}
@@ -76,6 +79,7 @@ public class VideojuegoService {
 	 * @param v El body del videojuego a actualizar
 	 * @return <b>Videojuego</b> actualizado, si no el id no coincide se devuelve null
 	 */
+	@Transactional
 	public Videojuego update(int id, Videojuego v) {
 		Videojuego game = videojuegoRepositoryJPAData.findById(id).orElse(null);
 		if(game != null) {
@@ -91,6 +95,7 @@ public class VideojuegoService {
 	 * @param id El id del videojuego que se vaya a eliminar
 	 * @return <b>boolean</b> True si existe el videojuego, false si no existe el videojuego
 	 */
+	@Transactional
 	public boolean delete(int id) {
 		Videojuego game = videojuegoRepositoryJPAData.findById(id).orElse(null);
 		if(game != null) {
@@ -105,7 +110,7 @@ public class VideojuegoService {
 	 * 
 	 * @return <b>String</b> con los precios de los videojuegos en una estructura JSON 
 	 */
-	public String precios() {
+	public String getPrecios() {
 		JSONObject json = new JSONObject();
 		List<Videojuego> listado = videojuegoRepositoryJPAData.findAll();
 		JSONArray arrGames = new JSONArray();	

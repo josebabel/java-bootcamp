@@ -2,6 +2,7 @@ package es.curso.controller;
 
 import java.util.List;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -24,12 +25,13 @@ public class VideojuegoController {
 	private VideojuegoService videojuegoService;
 
 	@GetMapping(path = "videojuegos/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Videojuego> getOneVideojuego(@PathVariable("id") int id) {
+	public ResponseEntity<?> getOneVideojuego(@PathVariable("id") int id) {
 		Videojuego game = videojuegoService.getOne(id);
 		if(game != null) {
 			return new ResponseEntity<Videojuego>(game, HttpStatus.OK);
 		} else {
-			return new ResponseEntity<Videojuego>(HttpStatus.NOT_FOUND);
+			String message = new JSONObject().put("message", "No existe ese ID").toString();
+			return new ResponseEntity<String>(message, HttpStatus.NOT_FOUND);
 		}
 	}
 	
@@ -40,22 +42,24 @@ public class VideojuegoController {
 	}
 	
 	@GetMapping(path = "videojuegos/nombre/{nombre}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Videojuego>> getVideojuegoByNombre(@PathVariable("nombre") String nombre) {
+	public ResponseEntity<?> getVideojuegoByNombre(@PathVariable("nombre") String nombre) {
 		List<Videojuego> listadoVideojuegos = videojuegoService.getByNombre(nombre);
 		if(listadoVideojuegos != null) {
 			return new ResponseEntity<List<Videojuego>>(listadoVideojuegos, HttpStatus.OK);
 		} else {
-			return new ResponseEntity<List<Videojuego>>(HttpStatus.NOT_FOUND);
+			String message = new JSONObject().put("message", "No existe ese nombre").toString();
+			return new ResponseEntity<String>(message, HttpStatus.NOT_FOUND);
 		}
 	}
 	
 	@GetMapping(path = "videojuegos/compania/{compania}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Videojuego>> getVideojuegoByCompania(@PathVariable("compania") String compania) {
+	public ResponseEntity<?> getVideojuegoByCompania(@PathVariable("compania") String compania) {
 		List<Videojuego> listadoVideojuegos = videojuegoService.getByCompania(compania);
 		if(listadoVideojuegos != null) {
 			return new ResponseEntity<List<Videojuego>>(listadoVideojuegos, HttpStatus.OK);
 		} else {
-			return new ResponseEntity<List<Videojuego>>(HttpStatus.NOT_FOUND);
+			String message = new JSONObject().put("message", "No existe esa compania").toString();
+			return new ResponseEntity<String>(message, HttpStatus.NOT_FOUND);
 		}
 	}
 	
@@ -66,12 +70,13 @@ public class VideojuegoController {
 	}
 	
 	@PutMapping(path = "videojuegos/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Videojuego> editVideojuego(@PathVariable("id") int id, @RequestBody Videojuego v) {
+	public ResponseEntity<?> editVideojuego(@PathVariable("id") int id, @RequestBody Videojuego v) {
 		Videojuego game = videojuegoService.update(id, v);
 		if(game != null) {
 			return new ResponseEntity<Videojuego>(game, HttpStatus.OK);
 		} else {
-			return new ResponseEntity<Videojuego>(HttpStatus.NOT_FOUND);
+			String message = new JSONObject().put("message", "No existe ese ID").toString();
+			return new ResponseEntity<String>(message ,HttpStatus.NOT_FOUND);
 		}
 	}
 	
@@ -79,15 +84,17 @@ public class VideojuegoController {
 	public ResponseEntity<String> deleteVideojuego(@PathVariable("id") int id) {
 		boolean res = videojuegoService.delete(id);
 		if(res) {
-			return new ResponseEntity<String>("Videojuego con ID " + id + " eliminado", HttpStatus.OK);
+			String message = new JSONObject().put("message", "Videojuego con ID " + id + " eliminado").toString();
+			return new ResponseEntity<String>(message, HttpStatus.OK);
 		} else {
-			return new ResponseEntity<String>("No existe ese ID", HttpStatus.NOT_FOUND);
+			String message = new JSONObject().put("message", "No existe ese ID").toString();
+			return new ResponseEntity<String>(message, HttpStatus.NOT_FOUND);
 		}
 	}
 	
 	@GetMapping(path = "videojuegos/precios", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> precios() {
-		String precios = videojuegoService.precios();
+		String precios = videojuegoService.getPrecios();
 		return new ResponseEntity<String>(precios, HttpStatus.OK);
 	}
 }
